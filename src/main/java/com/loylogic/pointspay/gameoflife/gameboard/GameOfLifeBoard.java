@@ -33,6 +33,8 @@ public class GameOfLifeBoard {
             for (int j = y - 1; j <= y + 1; j++) {
                 if (j < 0) continue;
 
+                if( i == x && j == y) continue;
+
                 Cell tempCell = new Cell(i, j);
                 if (this.liveCells.contains(tempCell)) {
                     tempCell.setState(State.LIVE);
@@ -48,7 +50,6 @@ public class GameOfLifeBoard {
             return 0;
 
         return (int) findNeighbours(cell).stream()
-                .filter(cl -> !cl.equals(cell))
                 .filter(cl -> State.LIVE.equals(cl.getState()))
                 .count();
     }

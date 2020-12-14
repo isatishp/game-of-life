@@ -40,14 +40,14 @@ public class GameOfLifeBoardTest {
     public void findNeighboursTest() {
         Cell cell = new Cell(2, 3, State.LIVE);
         Set<Cell> neighbours = board.findNeighbours(cell);
-        Assert.assertEquals(9, neighbours.size());
+        Assert.assertEquals(8, neighbours.size());
     }
 
     @Test
     public void findNeighboursTestCornerCells() {
         Cell cell = new Cell(0, 0);
         Set<Cell> neighbours = board.findNeighbours(cell);
-        Assert.assertEquals(4, neighbours.size());
+        Assert.assertEquals(3, neighbours.size());
         neighbours.forEach(cl -> Assert.assertEquals(State.DEAD, cl.getState()));
     }
 
